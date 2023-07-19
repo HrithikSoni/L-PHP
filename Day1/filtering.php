@@ -52,6 +52,7 @@
     <p>
         <?php foreach ($reqAuthorArray as $book) {
             echo $book;
+            // for outputing string var_dump([]);
         } ?>
     </p>
 
