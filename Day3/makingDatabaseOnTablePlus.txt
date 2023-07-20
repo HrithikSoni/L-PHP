@@ -1,0 +1,1 @@
+To make database on tableplus you have to click new then mysql then add column and data in the table.
