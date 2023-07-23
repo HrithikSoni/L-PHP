@@ -11,7 +11,7 @@ $db = new Database($config['database']);
 // $posts = $db->query($query)->fetchAll();
 
 $id = $_GET['id'];
-$query = "select * from posts where id = ?";
+$query = "select * from posts where id = :id";
 $posts = $db->query($query, [$id])->fetchAll();
 
 
