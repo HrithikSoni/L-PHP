@@ -1,6 +1,6 @@
 <?php
 
-$config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 
@@ -21,4 +21,8 @@ authorize($note['user_id'] === Response::currentUser);
 // }
 // ;
 
-require "views/note.view.php";
+// require view("notes/show.view.php");
+view("notes/show.view.php", [
+    'heading' => 'Note',
+    'note' => $note
+]);

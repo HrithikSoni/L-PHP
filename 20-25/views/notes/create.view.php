@@ -1,12 +1,12 @@
-<?php require('partials/head.php') ?>
-<?php require('partials/nav.php') ?>
-<?php require('partials/banner.php') ?>
+<?php require view('partials/head.php') ?>
+<?php require view('partials/nav.php') ?>
+<?php require view('partials/banner.php') ?>
 
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-    <form>
+    <form method="POST">
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">Body</h2>
+                <h2 class="text-base font-semibold leading-7 text-gray-900">Create Note</h2>
 
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -15,7 +15,13 @@
                         <label for="body" class="block text-sm font-medium leading-6 text-gray-900">Body</label>
                         <div class="mt-2">
                             <textarea id="body" name="body" rows="3"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                placeholder="Write your notes here (max len = 1000)"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"><?= isset($_POST['body']) ? $_POST['body'] : '' ?></textarea>
+                            <?php if (isset($errors['body'])): ?>
+                                <p class="text-red-500 text-xs mt-2">
+                                    <?= $errors['body'] ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="mt-6 flex items-center justify-end gap-x-6">
@@ -26,4 +32,4 @@
 </div>
 
 
-<?php require('partials/footer.php') ?>
+<?php require view('partials/footer.php') ?>
